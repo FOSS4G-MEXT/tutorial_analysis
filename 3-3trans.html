@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3-3． Editing Global Map by TileMill &mdash;  1.0 ドキュメント</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title=" 1.0 ドキュメント" href="index.html" />
+    <link rel="next" title="3-4．TExport from TileMill and disclosure" href="3-4trans.html" />
+    <link rel="prev" title="3-2． Reading Global Map into TileMill" href="3-2trans.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="3-4trans.html" title="3-4．TExport from TileMill and disclosure"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="3-2trans.html" title="3-2． Reading Global Map into TileMill"
+             accesskey="P">前へ</a> |</li>
+        <li><a href="index.html"> 1.0 ドキュメント</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="editing-global-map-by-tilemill">
+<h1>3-3． Editing Global Map by TileMill<a class="headerlink" href="#editing-global-map-by-tilemill" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>In this chapter, we actually perform editing of display attribute of map data. In TileMill highly flexible setting of display attribute is possible by CartoCSS, therefore we cannot explain all the details. Here explained is the most basic way of setting. Refer to the TileMill document （<a class="reference external" href="http://www.mapbox.com/tilemill/docs/">http://www.mapbox.com/tilemill/docs/</a> ）for details.</p>
+<div class="section" id="alternation-of-display-attribute">
+<h2>3-3-1． Alternation of display attribute<a class="headerlink" href="#alternation-of-display-attribute" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>If [Save &amp; Style] is selected on adding a vector layer, the default style is set as in Chart 3-3-1.</p>
+<p><img alt="グラフィックス1" src="_images/100002010000028E000002040A7D2EF8.png" /></p>
+<p>Chart 3-3-1． CSS added</p>
+<p>Here we explain CSS simply. CSS is the abbreviation of Cascading Style Sheets and it is used as a style sheet which designates the display method of HTML or XML.</p>
+<p>Based on CSS added to Chart 3-3-1, a basic syntax of CSS is explained in Chart3-3-2.</p>
+<p><img alt="グラフィックス2" src="_images/10000201000000BB000000817A0ACCF7.png" /></p>
+<p>Chart 3-3-2． Basic syntax of CSS</p>
+<p>The selector specifies the object to which the following style is applied. When the selector name starts with [#], the object is its ID. When it starts with [.], the object is its class.</p>
+<p>Describe the definition of the style in the part enclosed with [{}] (block). The definition of the style is specified with the combination of the property and its value. Type a colon at the end of the property, a semi-colon at the end (declaration) of the property and value.</p>
+<p>Enabled property is decided by the data of the application object. The example above is a style for the vector data of the line. The line width is specified as 1 pixel, the RGB value of the line color as (17, 102, 136). The unit of the line is pixel.</p>
+<p>The color can be specified with not only a key word such as “yellow” or “black” but also the value of RGB. The color value is specified by hexadecimal digits in the order of RGB following [#].The value which may be provided is a decimal number in the range 0-255 (8bit) or a hexadecimal number in the range of 00-ff. As an example, when you want to make the RGB value （34, 124, 207）, convert each value to hexadecimal numbers and specify as 「#227ccf」（34 =&gt; 22, 124 =&gt; 7c, 207 =&gt; cf）. In Chart 3-3-2, the color value is written with a three-digit number. This is the abbreviation of 「#116688」. Therefore, if hexadecimal 11, 66, 88 are converted to decimal numbers, they become 17, 102, 136 respectively. However, in TileMill the sample of the colors specified is shown at the bottom of a window since the actual color is hard to grasp only with the numbers.</p>
+<p><img alt="グラフィックス3" src="_images/100002010000028E00000204094A5886.png" /></p>
+<p>Chart 3-3-3． Example of color specification of CSS and color samples</p>
+<p>以下のコードは各レイヤーに色と線幅を設定した例で、各レイヤーを追加するときに「Save &amp; Style」を選択してデフォルトの表示属性が設定されている状態から、色を変更したものです。以下のコードによる表示結果を図３－３－４に示します。</p>
+<p>The following code is an example where the color and line width are set to each layer. Here, the color is changed from the condition where the default display attribute is set by selecting [Save &amp; Style] when adding each layer. The display result of the following code is shown in Chart 3-3-4.</p>
+<p>Code 3-3-1</p>
+<div class="highlight-python"><div class="highlight"><pre>Map {
+background-color: #b8dee6;
+}
+#countries { // Global map layer added on creating the project
+::outline {
+line-color: #85c5d3;
+line-width: 2;
+line-join: round;
+}
+polygon-fill: #fff;
+}
+#lc_warp { // Global map land use raster layer
+raster-opacity:0.4; // Transparency is set here for better visibility
+}
+#roadl { // Road layer (line)
+line-width:1;
+line-color:#f70;
+}
+#inwatera { // Inland waters layer (polygon)
+line-color:#594;
+line-width:0.5;
+polygon-opacity:1;
+polygon-fill:#00a;
+}
+#watrcrsl { // Water course layer (line)
+line-width:1;
+line-color:#7cf;
+}
+</pre></div>
+</div>
+<p><img alt="グラフィックス4" src="_images/100000000000031000000232771E7A3E.png" /></p>
+<p>Chart 3-3-4． Display result of Code 3-3-1</p>
+<p>Below are the examples of the map editing techniques.</p>
+<p>・Utilization of pseudo-elements</p>
+<p>The pseudo-elements in HTML/CSS are written after the element name and colon like 「p:fiirst-letter」 for instance. But the pseudo-elements in CartoCSS used in TileMill are different in terms of the function and way of writing as well.</p>
+<p>As of the pseudo-elements in CartoCSS, the pseudo-element name is written following two colons like 「#layer::pseudoelem」. Any strings can be specified for the pseudo-element name. The pseudo-element is used when you want to combine multiple styles for one selector. Chart 3-3-5 is an example of bordering the line data.</p>
+<p><img alt="グラフィックス5" src="_images/10000201000001E6000001D22F2804AD.png" /></p>
+<p>Chart 3-3-5． Example of bordering lines</p>
+<p>To display the bordering as in Chart 3-3-5, draw wide lines first, then narrower lines with different color. If you write a code like Code 3-3-2 for this operation, the style written later will overwrites the earlier style.</p>
+<p>Code 3-3-2</p>
+<div class="highlight-python"><div class="highlight"><pre>#roadl {
+line-width:4;
+line-color:#f70;
+}
+#roadl { // Only this style will be applied.
+line-width:3;
+line-color:#ff0;
+}
+</pre></div>
+</div>
+<p>So, multiple styles can be applied to a single layer by adding the pseudo-element to the second style like Code 3-3-3 to avoid overwriting.</p>
+<p>Code 3-3-3</p>
+<div class="highlight-python"><div class="highlight"><pre>#roadl {
+line-width:4;
+line-color:#f70;
+}
+#roadl::cs { // Add the pseudo-element “:cs”
+line-width:3;
+line-color:#ff0;
+}
+</pre></div>
+</div>
+<p>As the style is applied in the order of writing, 4pixel-wide orange lines are drawn first and then 3pixel-wide yellow line, which gives the bordering effect. The style definition with no pseudo-element added is called default symbolizer.</p>
+<p>・Condition-based symbol</p>
+<p>By setting conditions to the object of style specifications, you can apply a style to the elements that have a specific attribute and change styles at each zoom level within a single layer.</p>
+<p>In vector data, the attribute is given to the elements. To check the attribute of a vector layer in TileMill, click the table button in the layer window.</p>
+<p><img alt="グラフィックス6" src="_images/1000020100000171000000D5E5AA3370.png" /></p>
+<p>Chart 3-3-6． Display of attribute table</p>
+<p><img alt="グラフィックス7" src="_images/10000201000004500000036699AE63F9.png" /></p>
+<p>Chart 3-3-7． Display of attribute table</p>
+<p>To change the style according to the attribute value, describe the condition of the attribute value like [attribute=value], then the style you hope to apply.</p>
+<p>Code 3-3-4</p>
+<div class="highlight-python"><div class="highlight"><pre>#roadl {
+[rtt_descri=&#39;Primary Route&#39;] { // When the attribute “rtt_descri” is
+::case { // &#39;Primary Route&#39;
+line-width:4; // When the attribute value is a character string,
+line-color:#f70; // enclose with single quotation marks
+}
+::fill {
+line-width:3;
+line-color:#ff0;
+}
+}
+[rtt_descri=&#39;Secondary Route&#39;] { // When the attribute “rtt_descri” is
+::case { // &#39;Secondary Route&#39;
+line-width:2;
+line-color:#f70;
+}
+::fill {
+line-width:1;
+line-color:#ff0;
+}
+}
+}
+</pre></div>
+</div>
+<p>Or, the condition can be written right after a selector as in Code 3-3-5.</p>
+<p>Code 3-3-5</p>
+<div class="highlight-python"><div class="highlight"><pre>#roadl [rtt_descri=&#39;Primary Route&#39;] {
+::case {
+line-width:4;
+line-color:#f70;
+}
+::fill {
+line-width:3;
+line-color:#ff0;
+}
+}
+#roadl [rtt_descri=&#39;Secondary Route&#39;] {
+::case {
+line-width:2;
+line-color:#f70;
+}
+::fill {
+line-width:1;
+line-color:#ff0;
+}
+}
+</pre></div>
+</div>
+<p>The execution result of the code above is as follows. You can see that the width of the main roads differs from that of other roads.</p>
+<p><img alt="グラフィックス8" src="_images/10000201000001E6000001BE9CF95FB4.png" /></p>
+<p>Chart 3-3-8． Execution result of Code 3-3-4, 3-3-5</p>
+<p>In the code above, the default style is not defined. It is better to define the default style if some display is necessary even when not all the conditions are fulfilled.</p>
+<p>For the condition specification of the attributer value, a sign of inequality can be used for a numeric type. Also, regular expressions can be used for a text type.</p>
+<p>For the condition specification of zoom level, such designation as 「zoom=」 or 「zoom &gt;」 is possible. The below is an example that the style in the case of zoom level being less than 7 is added in addition to the conditions above.</p>
+<p>Code 3-3-6</p>
+<div class="highlight-python"><div class="highlight"><pre>#roadl {
+[rtt_descri=&#39;Primary Route&#39;] {
+::case {
+line-width:4;
+line-color:#f70;
+}
+::fill {
+line-width:3;
+line-color:#ff0;
+}
+}
+[rtt_descri=&#39;Secondary Route&#39;] {
+::case {
+line-width:2;
+line-color:#f70;
+}
+::fill {
+line-width:1;
+line-color:#ff0;
+}
+}
+[zoom &lt;= 7] { // Condition specification of zoom level
+[rtt_descri=&#39;Primary Route&#39;] {
+line-width:2;
+line-color:#f70;
+}
+[rtt_descri=&#39;Secondary Route&#39;] {
+line-width:1;
+line-color:#f70;
+}
+}
+}
+</pre></div>
+</div>
+<p><img alt="グラフィックス11" src="_images/100002010000027A00000146FD7EF980.png" /></p>
+<p>Chart 3-3-9． Different styles for each zoom level</p>
+<p>・Display of text label</p>
+<p>Text-name property is used to display the attribute value of each element as a text label. In the code example below, the administrative district names are displayed as text labels disabling the fill of the administrative district polygons.</p>
+<p>Code 3-3-7</p>
+<div class="highlight-python"><div class="highlight"><pre>#polbnda {
+::shape {
+line-color:#700;
+line-width:2.5;
+polygon-opacity:0; // Disabling the fill of polygons
+polygon-fill:#ae8;
+}
+::label {
+text-face-name: &quot;Times New Roman Bold Italic&quot;;
+text-name:&quot;[nam]&quot;; // Specify the attribute displayed as a label in [nam].
+}
+}
+</pre></div>
+</div>
+<p><img alt="グラフィックス9" src="_images/10000201000001E6000001D2AE0623DA.png" /></p>
+<p>Chart 3-3-10． Execution result of Code 3-3-6</p>
+<p>The code above is the easiest setting example of text labels. Different styles are allocated to the text label and element by the pseudo-element. In this way, a mutual text label can be used for all the elements even when using different styles of elements by condition,</p>
+<p>Attribute values used for text labels can be multiple. In such a case, character strings can be combined with 「+」.</p>
+<p>Code 3-3-8</p>
+<div class="highlight-python"><div class="highlight"><pre>#polbnda {
+::shape {
+line-color:#700;
+line-width:2.5;
+polygon-opacity:0;
+polygon-fill:#ae8;
+}
+::label {
+text-face-name: &quot;Times New Roman Bold Italic&quot;;
+text-name:&quot;[id] + &#39;:&#39; + [nam]&quot;; // Enclose the value with double quotations.
+// Fixed character strings are enclosed
+// with single quotations.
+}
+}
+</pre></div>
+</div>
+<p>The font to be used as a label is specified in text-face-name property. To check the fonts available, click 「A」 at the bottom left.</p>
+<p><img alt="グラフィックス10" src="_images/100002010000028E0000020440AE309D.png" /></p>
+<p>Chart 3-3-11． Display of font list</p>
+<p>As of a text label style, not only the font but also the text size, color and bordering effect of the label can be set. The following is an example of the specification of a text label and its execution result.</p>
+<p>Code 3-3-9</p>
+<div class="highlight-python"><div class="highlight"><pre>#polbnda {
+::shape {
+line-color:#700;
+line-width:2.5;
+polygon-opacity:0;
+polygon-fill:#ae8;
+}
+::label {
+text-face-name: &quot;Times New Roman Bold Italic&quot;;
+text-name:&quot;[id] + &#39;:&#39; + [nam]&quot;;
+text-size: 20; // Text sixe (pixel)
+text-fill: #0077ff; // Text color
+text-halo-fill: fadeout(#fefefe, 50%); // Color around the label
+text-halo-radius: 5.0; // Area around the label
+}
+}
+</pre></div>
+</div>
+<p><img alt="グラフィックス12" src="_images/10000000000001E6000001D2041F2BE0.png" /></p>
+<p>Chart 3-3-12． Execution result of Code 3-3-9</p>
+<p>In this example, 「fadeout(#fefefe, 50%)」 is specified as text-halo-fill property value . Here is specified the color with 50% of the transparency using color function. Refer to <a class="reference external" href="http://www.mapbox.com/carto/api/2.1.0/#color">http://www.mapbox.com/carto/api/2.1.0/#color</a> about the detail of color function.</p>
+<p>To draw a label on a curved line such as a river, you need to display the label along the element. Below is an example of a label to a river layer.</p>
+<p>Code 3-3-10</p>
+<div class="highlight-python"><div class="highlight"><pre>#watrcrsl {
+line-width:1;
+line-color:#7cf;
+::label {
+text-face-name: &quot;Times New Roman Bold Italic&quot;;
+text-name:&quot;[nam]&quot;;
+text-size: 10;
+text-fill: #07f;
+text-halo-fill: fadeout(#fefefe, 50%);
+text-halo-radius: 2.0;
+text-placement: line; // Specifying the label to be along the line
+text-dy: 11; // Specifying the offset of the label position
+text-max-char-angle-delta: 15; // as 10 pixel above
+} // Maximum angle between characters
+}
+</pre></div>
+</div>
+<p><img alt="グラフィックス13" src="_images/10000000000001E6000001BED04F0D75.png" /></p>
+<p>Chart 3-3-13．コExecution result of Code 3-3-10</p>
+<p>・Setting line type</p>
+<p>In addition to the line color and width, the type of lines can be specified for lines and those of polygon borders. Apart from simple broken lines, it is possible to define double lines using the pseudo-element explained above.</p>
+<p>First we show the specification method of a simple dashed line.</p>
+<p>Code 3-3-11</p>
+<div class="highlight-python"><div class="highlight"><pre>#polbndl {
+::outline {
+line-color:#700;
+line-width:2.5;
+line-dasharray: 20, 6, 3, 6;
+}
+}
+</pre></div>
+</div>
+<p>The definition of dashed lines is performed in line-dasharray property. It is done by the array of numerical values as above. The array above is interpreted as following.</p>
+<p><img alt="グラフィックス14" src="_images/10000201000001090000004AA5AA422C.png" /></p>
+<p>Code 3-3-14． Definition of dashed lines</p>
+<p>Thus, the execution result of Code 3-3-11 is as shown below.</p>
+<p><img alt="グラフィックス15" src="_images/10000000000001E6000001D2F5C61414.png" /></p>
+<p>Code 3-3-15．Execution result of Code 3-3-11</p>
+<p>By combining dashed lines, it is enabled to draw railway lines realistically. The following is an example of two types of railway lines.</p>
+<p>Code 3-3-12</p>
+<div class="highlight-python"><div class="highlight"><pre>#railrdl {
+::line {
+line-width:2;
+line-color:#444;
+}
+::tick { // Use broad dashed lines of wide interval as ticks
+line-width: 8;
+line-color: #444;
+line-dasharray: 2, 48;
+}
+}
+</pre></div>
+</div>
+<p><img alt="グラフィックス16" src="_images/10000000000001E6000001D298DF8817.png" /></p>
+<p>Chart 3-3-16． Execution result of Code 3-3-12</p>
+<p>Code 3-3-13</p>
+<div class="highlight-python"><div class="highlight"><pre>#railrdl {
+::line {
+line-width:6;
+line-color:#444;
+}
+::dash { // Superpose white dashed lines slightly narrower
+line-width: 5; // than the main lines
+line-color: #fff;
+line-dasharray: 16, 16;
+line-join: round;
+line-cap: round;
+}
+}
+</pre></div>
+</div>
+<p><img alt="グラフィックス17" src="_images/10000000000001E6000001D2FAD80F00.png" /></p>
+<p>Chart 3-3-17． Execution result of Code 3-3-13</p>
+<p>・Apply a custom symbol to a marker</p>
+<p>A custom symbol you have made can be applied as a symbol to a point layer. SVG format and PNG format can be used for a custom symbol. As an example, we create a SVG symbol as in Chart 3-3-18. For creating a SVG symbol, Inkscape（<a class="reference external" href="http://inkscape.org/">http://inkscape.org/</a>）was employed.</p>
+<p><img alt="グラフィックス18" src="_images/100000000000042A0000031754C7F2FC.png" /></p>
+<p>Chart 3-3-18． Custom symbol SVG</p>
+<p>The SVG file created can be referred to by the absolute path or the relative path from the top directory of the project. The code below assumes that the file is saved as “marker.svg” in the top directory of the project.</p>
+<p>Code 3-3-14</p>
+<div class="highlight-python"><div class="highlight"><pre>#builtupp {
+::label [nam != &#39;UNK&#39;]{ // Label of the marker ３－３－１．
+text-name: &#39;[nam]&#39;;
+text-face-name: &quot;Arial Regular&quot;;
+text-size: 12;
+text-fill: #222;
+text-wrap-width: 60;
+text-wrap-before: true;
+text-halo-radius: 2;
+text-halo-fill: #fff;
+text-min-distance: 2;
+text-placement-type: simple;
+text-dx: 10; // Label position to the marker
+text-dy: -10; // Descending direction of Y-coordinate is “+”
+}
+::place {
+marker-file: url(&#39;marker.svg&#39;); // Specifying the self-created marker file
+marker-width:20;
+marker-allow-overlap:true;
+}
+}
+</pre></div>
+</div>
+<p><img alt="グラフィックス19" src="_images/1000000000000162000000EF93A28D35.png" /></p>
+<p>Chart 3-3-19． Execution result of Code 3-3-14</p>
+</div>
+<div class="section" id="addition-of-marginal-information">
+<h2>3-3-2． Addition of marginal information<a class="headerlink" href="#addition-of-marginal-information" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>In TileMill, a legend and pop-up can be added.</p>
+<p>・ Legend</p>
+<p>For adding a legend, click the pointer button at the lower left.</p>
+<p><img alt="グラフィックス20" src="_images/100002010000028E00000204EADCBF97.png" /></p>
+<p>Chart 3-3-20． Legend editing window</p>
+<p>A legend is written in HTML format. The following is a basic example.</p>
+<p>Code 3-3-15</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;strong&gt;Global Map Thailand&lt;/strong&gt;&lt;br /&gt;
+For more information about Global Map, Please see
+&lt;a href=&quot;http://www.iscgm.org/cgi-bin/fswiki/wiki.cgi&quot;&gt;International Steering Committee for Global Mapping&lt;/a&gt; Web site.
+&lt;style type=&#39;text/css&#39;&gt;
+.wax-legend a {
+color: #00f;
+}
+&lt;/style&gt;
+</pre></div>
+</div>
+<p>The style to &lt;a&gt; element is defined by &lt;style&gt; tag in the code. Before this, there is a class selector “.wax-legend.” This is a class common to a legend and pop-up which is to be explained later.</p>
+<p>In Chart 3-3-21 is shown the execution result of Code 3-3-15.</p>
+<p><img alt="グラフィックス21" src="_images/100002010000045000000366F5B23A3A.png" /></p>
+<p>Chart 3-3-21． Example of a simple legend</p>
+<p>Generally, the symbols on the map and their meanings are listed in a legend. Code 3-3-16 is a legend to a land use raster layer.</p>
+<p>Code 3-3-16</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;div class=&quot;legend&quot;&gt;
+&lt;h2&gt;Legend for landcover raster layer&lt;/h2&gt;
+&lt;ul class=&quot;legend-labels&quot;&gt;
+&lt;li&gt;&lt;span style=&quot;background:#1a5100;&quot;&gt;&lt;/span&gt;Broadleaf Evergreen Forest&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#007a1f;&quot;&gt;&lt;/span&gt;Broadleaf Deciduous Forest&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#509600;&quot;&gt;&lt;/span&gt;Needleleaf Evergreen Forest&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#1eb900;&quot;&gt;&lt;/span&gt;Needleleaf Deciduous Forest&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#00da4d;&quot;&gt;&lt;/span&gt;Mixed Forest&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#47fd00;&quot;&gt;&lt;/span&gt;Tree Open&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#a2fe00;&quot;&gt;&lt;/span&gt;Shrub&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#53fdaf;&quot;&gt;&lt;/span&gt;Herbaceous, single layer&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#9afb9f;&quot;&gt;&lt;/span&gt;Herbaceous with Sparse Tree / Shrub&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#ffffcc;&quot;&gt;&lt;/span&gt;Sparse Vegetation&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#98e2fd;&quot;&gt;&lt;/span&gt;Cropland&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#fdcb94;&quot;&gt;&lt;/span&gt;Paddy field&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#ff0000;&quot;&gt;&lt;/span&gt;Urban&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#ffe7b3;&quot;&gt;&lt;/span&gt;Bare area, consolidated&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#caeffd;&quot;&gt;&lt;/span&gt;Bare area, unconsolidated&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#e89c94;&quot;&gt;&lt;/span&gt;Wetland&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;background:#007fff;&quot;&gt;&lt;/span&gt;Water Bodies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style type=&#39;text/css&#39;&gt;
+.wax-legend ul {
+padding: 5px;
+border: 1px solid #999;
+margin: 0;
+margin-bottom: 5px;
+float: left;
+list-style: none;
+}
+.wax-legend ul li {
+font-size: 80%;
+list-style: none;
+margin-left: 0;
+line-height: 18px;
+margin-bottom: 2px;
+}
+.wax-legend ul.legend-labels li span {
+display: block;
+float: left;
+height: 16px;
+width: 30px;
+margin-right: 5px;
+margin-left: 0;
+border: 1px solid #999;
+}
+&lt;/style&gt;
+</pre></div>
+</div>
+<p>In the code above, a color is set as the background of &lt;span&gt; element not utilizing an image as the symbol of the legend. Also, the frames are drawn by the common style of &lt;span&gt; element.</p>
+<p>The execution result of Code 3-3-16 is as follows.</p>
+<p><img alt="グラフィックス22" src="_images/10000000000005330000035AD997202C.png" /></p>
+<p>Chart 3-3-22． Legend of raster layer</p>
+<p>・Display of a pop-up</p>
+<p>A pop-up is the display of information which appears when the mouse cursor is superposed on a feature on a map or when a feature is clicked. A legend is displayed all the time. On the other hand, a pop-up window is shown only when an event occurs.</p>
+<p>For setting a pop-up, click the pointer button at the lower left and select 「Teaser」or 「Full」 at the top of the window that appears. Select 「Teaser」 if you want to display the pop-up when the mouse cursor is superposed on a feature, and select 「Full」 if you want it when a feature is clicked.</p>
+<p><img alt="グラフィックス23" src="_images/100002010000028E00000204C45F50B0.png" /></p>
+<p>Chart 3-3-23． Edition of pop-up</p>
+<p>There is a combo box where you select a target layer for the pop-up at the bottom of the pop-up edition screen as in Chart 3-3-23. Select a layer and the fields of the layer selected are listed in the pane. Here choose the fields to be displayed at the time of pop-up.</p>
+<p>The following is a code example to display a name with an inland waters layer as a target.</p>
+<p>Code 3-3-17</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;div style=&quot;text-align:center; background-color:#8ff; padding:5px;&quot;&gt;
+Inland water area&lt;br/&gt;
+Name : &lt;span style=&quot;color:#00a; font-style:italic;&quot;&gt;{{nam}}&lt;/span&gt;
+&lt;/div&gt;
+</pre></div>
+</div>
+<p>The execution result when Code 3-3-7 is input in 「Teaser」 is as below.</p>
+<p><img alt="グラフィックス24" src="_images/1000000000000258000001903393C89C.png" /></p>
+<p>Chart 3-3-24． Pop-up when Teaser is selected</p>
+<p>The following is the execution result when Code 3-3-17 is input in 「Full」.</p>
+<p><img alt="グラフィックス25" src="_images/1000000000000258000001900EBAB04B.png" /></p>
+<p>Chart 3-3-25． Pop-up when Full is selected</p>
+<p>When it is input in 「Full」, the pop-up continues to be displayed until 「×」 button is clicked.</p>
+<p>Different layers cannot be set for 「Teaser」 and 「Full.」</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3-3． Editing Global Map by TileMill</a><ul>
+<li><a class="reference internal" href="#alternation-of-display-attribute">3-3-1． Alternation of display attribute</a></li>
+<li><a class="reference internal" href="#addition-of-marginal-information">3-3-2． Addition of marginal information</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="3-2trans.html"
+                        title="前の章へ">3-2． Reading Global Map into TileMill</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="3-4trans.html"
+                        title="次の章へ">3-4．TExport from TileMill and disclosure</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/3-3trans.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    モジュール、クラス、または関数名を入力してください
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="3-4trans.html" title="3-4．TExport from TileMill and disclosure"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="3-2trans.html" title="3-2． Reading Global Map into TileMill"
+             >前へ</a> |</li>
+        <li><a href="index.html"> 1.0 ドキュメント</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, .
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2 で生成しました。
+    </div>
+  </body>
+</html>

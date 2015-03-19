@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3-4．TExport from TileMill and disclosure &mdash;  1.0 ドキュメント</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title=" 1.0 ドキュメント" href="index.html" />
+    <link rel="prev" title="3-3． Editing Global Map by TileMill" href="3-3trans.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="3-3trans.html" title="3-3． Editing Global Map by TileMill"
+             accesskey="P">前へ</a> |</li>
+        <li><a href="index.html"> 1.0 ドキュメント</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="texport-from-tilemill-and-disclosure">
+<h1>3-4．TExport from TileMill and disclosure<a class="headerlink" href="#texport-from-tilemill-and-disclosure" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Once the map data created in exported, it becomes available for the use on othersoftware. Also, the disclosure of map data is possible by using cloud service. In this chapter, the setting method of a project as a preparation for exporting is first explained, then the export method to MBTiles file and upload method to MapBox web service.</p>
+<p>・Project setting</p>
+<p>A part of the project setting method has already been explained inChapter3-2. To open the project setting screen, refer to Chart 3-2-10 above.</p>
+<p>Here is explained the project setting for export. The following setting can be performedwhenexporting with MBTiles format.</p>
+<p>On the assumption that the default zoom level and the center point of the project is already set as inChapter3-2 in the project setting screen, we now set the extent of the project and zoom level.</p>
+<p>The extent of the project is equal to that of the file to be exported. To determine the extent, drag on the mapwindowon the left with clicking a shift key.</p>
+<p><img alt="グラフィックス1" src="_images/image1.png" /></p>
+<p>Chart3-4-1．Determination of project extent</p>
+<p>Once it is set, the project extent is displayed brightly and the rest becomes dark.</p>
+<p>Now, we set the zoom level extent from [Zoom] slider in the right pane.</p>
+<p><img alt="グラフィックス2" src="_images/image2.png" /></p>
+<p>Chart3-4-2．Setting of zoom level extent</p>
+<p>Since MBTiles files retainatile image corresponding to each zoom level, the file size becomes bigger as the number of zoom levels increases and it becomes more detailed. Although all the zoom extent (1～22) is set as the default, set it to the adequateextentnot to make the file size large.</p>
+<p><img alt="グラフィックス3" src="_images/image3.png" /></p>
+<p>Chart3-4-3．Setting of zoom extent</p>
+<p>［MetaTile size］is the number of partitions in the tile structure. It consists of tile parts displayed and buffer area of 128pixel. The number of partitions is the number of partitions of the part displayed; to set it 2 means thatthe part is divided 4 (2×2). The number of partitions of MetaTile affects performances like display speed. The default setting (2) will cause no problem.</p>
+<p>Click　「Save」after completing all the setting.</p>
+<p>・Export to MBTiles format</p>
+<p>To convert to MBTiles format, click【Export】at the upper left and select【MBTiles】from the dropdown menu.</p>
+<p><img alt="グラフィックス4" src="_images/image4.png" /></p>
+<p>Chart3-4-4．Select export menu</p>
+<p>Now the window as Chart3-4-5 is displayed. This window is almost same as the project setting screenand the setting of the project setting is reflected. If you do not need to change, click「Export」. If you want to change the setting, for example, when you want to export only a part of the project, set adequately and click「Export」.</p>
+<p>The export processing is performed in the background. Generally, it takessometime to export. The progress of export processing is displayed as in Chart 3-4-5.</p>
+<p><img alt="グラフィックス5" src="_images/image5.png" /></p>
+<p>Chart3-4-5．Progress of export processing</p>
+<p>To cancel the export, click the trash box at the right of the progress bar. Export processing is continued even if you close the progress window. To check the progress again, select【Export】－【View exports】at the top right.</p>
+<p><img alt="グラフィックス6" src="_images/image6.png" /></p>
+<p>Chart3-4-6．Display of export state</p>
+<p>When the export is completed, click「Save」button that appears.</p>
+<p><img alt="グラフィックス7" src="_images/image7.png" /></p>
+<p>Chart3-4-7．After completing export</p>
+<p>Click「Save」and the screen as Chart 3-4-8 is displayed. If there is no problem, click「Save MBTiles」.</p>
+<p><img alt="グラフィックス8" src="_images/image8.png" /></p>
+<p>Chart3-4-8．MBTiles confirmation screen</p>
+<p>A window that asks the storage destination is displayed. Specify thedestination and click「Save」.</p>
+<p><img alt="グラフィックス9" src="_images/image9.png" /></p>
+<p>Chart3-4-9．Specify the file storage destination</p>
+<p>・Upload to MapBox and disclosure</p>
+<p>In MapBox (<a class="reference external" href="http://www.mapbox.com/">http://www.mapbox.com/</a>), map data created on the map platform on MapBox can be disclosed by uploading the map data created by TileMill. On disclosing, OpenStreetMap, topographic data and satellite data can be used as a background of the map. In case of afree account, the capacity of the data to be uploaded is 50MB. You need to select a pay plan if the bigger capacity is necessary.</p>
+<p>Here is explained the method to upload directly from TileMill.３－４－１</p>
+<p>First, create a MapBox account. Click『Sign up』at the upper rightof the top page of MapBox.</p>
+<p><img alt="グラフィックス10" src="_images/image10.png" /></p>
+<p>Chart3-4-10．MapBox top page</p>
+<p>The account creation screen appears. Input your e-mail address, desired user name and password, then click 「CREATE ACCOUNT」button.</p>
+<p><img alt="グラフィックス11" src="_images/image11.png" /></p>
+<p>Chart3-4-11．Account creation screen</p>
+<p>Once the account is created, a confirmation mail is sent from MapBox to the e-mail addressentered.Click the link shown in the mail and the creation of the account is completed.</p>
+<p>Now log in to MapBox. Click『Log in』at the upper right of the top page of MapBox.</p>
+<p><img alt="グラフィックス12" src="_images/image12.png" /></p>
+<p>Chart3-4-12．Log in from the top page of MapBox</p>
+<p>A login screen is displayed.Enterthe e-mail address and password previously set.</p>
+<p><img alt="グラフィックス13" src="_images/image13.png" /></p>
+<p>Chart3-4-13．Login screen</p>
+<p>Log in and the dashboard as Chart 3-4-14 appears. There is no data yet at this stage.</p>
+<p><img alt="グラフィックス14" src="_images/image14.png" /></p>
+<p>Chart3-4-14．MapBox account dashboard</p>
+<p>After finishing the account creation, go on to interlocking TileMill and the MapBox account. For this, click「Settings」at the left side of TileMill.</p>
+<p><img alt="グラフィックス15" src="_images/image15.png" /></p>
+<p>Chart3-4-15．TileMill setting button</p>
+<p>Various settings on TileMillcan be performed in the setting screen. Click「Authorized」located around the center of the screen for interlocking with the MapBox account.</p>
+<p><img alt="グラフィックス16" src="_images/image16.png" /></p>
+<p>Chart3-4-16．TileMill settingscreen</p>
+<p>If the account is logged in, the screen as Chart 3-4-17 is displayed. Click「ALLOW」to authorize if there is no problem.</p>
+<p><img alt="グラフィックス17" src="_images/image17.png" /></p>
+<p>Chart3-4-17．Loginscreen from TileMill to MapBox</p>
+<p>Once the authorization is completed, a screen like Chart 3-4-18 is displayed.</p>
+<p><img alt="グラフィックス18" src="_images/image18.png" /></p>
+<p>Chart3-4-18．Authorization completed</p>
+<p>The interlock state with TileMill can be checked from the MapBox account as well. Click the spanner icon at the upper right of the dashboard and select【Settings】from the dropdown menu.</p>
+<p><img alt="グラフィックス19" src="_images/image19.png" /></p>
+<p>Chart3-4-19．MapBox menu</p>
+<p>Select「Applications」from the right side of the screen displayed.</p>
+<p><img alt="グラフィックス20" src="_images/image20.png" /></p>
+<p>Chart3-4-20．MapBox setting screen</p>
+<p>Check the left side of the screen displayed to confirmthat TileMill is registered as shown in Chart 3-4-21.</p>
+<p><img alt="グラフィックス21" src="_images/image21.png" /></p>
+<p>Chart3-4-21．Confirmation of application registration</p>
+<p>Onceinterlocking of TileMill and MapBox account is finished, map data can be uploaded from TileMill. For this, select【Export】-【Upload】from the menu at the upper right.</p>
+<p><img alt="グラフィックス22" src="_images/image22.png" /></p>
+<p>Chart3-4-22．Upload menu of TileMill</p>
+<p>Then the screen like Chart3-4-23 is shown. If you find no problem, click「Next」and the upload is started.</p>
+<p><img alt="グラフィックス23" src="_images/image23.png" /></p>
+<p>Chart3-4-23．Upload confirmation screen</p>
+<p><img alt="グラフィックス24" src="_images/image24.png" /></p>
+<p>Chart3-4-24．Upload progress</p>
+<p>When the upload is completed,「View」button as in Chart 3-4-25 is displayed. Click it and you can view the map data uploaded.</p>
+<p><img alt="グラフィックス25" src="_images/image25.png" /></p>
+<p>Chart3-4-25．Upload completion screen</p>
+<p><img alt="グラフィックス26" src="_images/image26.png" /></p>
+<p>Chart3-4-26．Map data uploaded</p>
+<p>To disclose the map data uploaded, click「Share」button at the top left and paste the HTML code on display to the disclosure page.</p>
+<p><img alt="グラフィックス27" src="_images/image27.png" /></p>
+<p>Chart3-4-27．Sharing map data</p>
+<p>Apart from the disclosure method above, there is a way to refer using Mapbox.js or iOS SDK, or you can publish as static image data. In order to perform more detailed disclosure setting, click the pencil button at the top left of the page and click「PUBLISH」at the top of the left panel displayed.</p>
+<p><img alt="グラフィックス28" src="_images/image28.png" /></p>
+<p>Chart3-4-28．Detaileddisclosure setting</p>
+<p>Click「PUBLISH」and the screen as Chart 3-4-29 appears. The embedded code mentioned earlier is displayed by clicking［Easy Embed］. Thefollowingpicture is a disclosurescreen by Mapbox.js. About MapBox is explained in Chapter 4-2.</p>
+<p><img alt="グラフィックス29" src="_images/image29.png" /></p>
+<p>Chart3-4-29．Disclosure detail screen</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="3-3trans.html"
+                        title="前の章へ">3-3． Editing Global Map by TileMill</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/3-4trans.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    モジュール、クラス、または関数名を入力してください
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="3-3trans.html" title="3-3． Editing Global Map by TileMill"
+             >前へ</a> |</li>
+        <li><a href="index.html"> 1.0 ドキュメント</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, .
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2 で生成しました。
+    </div>
+  </body>
+</html>

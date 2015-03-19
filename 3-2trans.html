@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3-2． Reading Global Map into TileMill &mdash;  1.0 ドキュメント</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title=" 1.0 ドキュメント" href="index.html" />
+    <link rel="next" title="3-3． Editing Global Map by TileMill" href="3-3trans.html" />
+    <link rel="prev" title="Welcome to ‘s documentation!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="3-3trans.html" title="3-3． Editing Global Map by TileMill"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to ‘s documentation!"
+             accesskey="P">前へ</a> |</li>
+        <li><a href="index.html"> 1.0 ドキュメント</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="reading-global-map-into-tilemill">
+<h1>3-2． Reading Global Map into TileMill<a class="headerlink" href="#reading-global-map-into-tilemill" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Once TileMill is started, a screen like Chart 3-2-1 is displayed. To start editing a map, select “New project” at the top left first.</p>
+<p><img alt="グラフィックス1" src="_images/10000201000002910000020644488592.png" /> Chart 3-2-1． Startup screen of TileMill</p>
+<p>Once selected, a project creation dialogue such as in Chart 3-2-1 is displayed. Here input the setting such as the file name and the explanation of the project. Check “Default data” and a simple global map layer is added in advance. It is better to check it to confirm that the position of a layer to be added is correct.</p>
+<p>Click “Add” after finishing all the setting and the project is created.</p>
+<p><img alt="グラフィックス2" src="_images/100002010000029400000208DE73133F.png" /></p>
+<p>Chart 3-2-2． Creation screen of a project</p>
+<p>When a new project is created, a screen like Chart 3-2-3 appears.</p>
+<p><img alt="グラフィックス3" src="_images/100002010000028E00000204E5B8B645.png" /></p>
+<p>Chart 3-2-3． Initial window</p>
+<p>Now add the data on hand. To add data, first click the bottom button of the four at the lower left and click “Add layer” in the layer management window displayed.</p>
+<p><img alt="グラフィックス4" src="_images/100002010000028E00000340D34C0668.png" /></p>
+<p>Chart 3-2-4． Add layer button</p>
+<p>Then a screen as in Chart 3-2-5 is displayed. To select a file to be added, click “Browse.”</p>
+<p><img alt="グラフィックス5" src="_images/100002010000028E000002048BF88509.png" /></p>
+<p>Chart 3-2-5． Add layer window</p>
+<p>A file selection screen like Chart 3-2-6 appears. Select a file to be added.３－２－１</p>
+<p><img alt="グラフィックス6" src="_images/1000020100000450000003669A512939.png" /></p>
+<p>Chart 3-2-6． File selection screen</p>
+<p>Once a file is selected, a name is automatically input in the [ID] field in Chart 3-2-5. This ID is used on setting the style in CSS. Input a different ID name to change the ID.</p>
+<p>In [Class], input a class name. In CSS, the style specified in a layer ID is applied only to one layer since an ID is allocated to a layer respectively. However, Class can be allocated to multiple layers on the same name. Thus, a mutual style can be applied to several layers. Leave it blank if not using it.</p>
+<p>Spatial reference is specified in [SRS]. If defined by a file, it can be “Autodetect.” But a user has to specify if not defined. At the time of writing this chapter, reading the spatial reference of GeoTIFF is not possible.３－２－２</p>
+<p><img alt="グラフィックス7" src="_images/100002010000028E000001D5E53056FB.png" /></p>
+<p>Chart 3-2-7． Add layer window</p>
+<p>Once the setting is completed, click [Save &amp; Style]. Then the default style of the layer is automatically set. By clicking [Save], the style is not set. When the style is not set, the layer is not displayed.</p>
+<p>Chart 3-2-8 is an example of the display when a raster layer is added.</p>
+<p><img alt="グラフィックス8" src="_images/10000201000004500000036603B74D2A.png" /></p>
+<p>Chart 3-2-8． Display of raster layer</p>
+<p>In [Layers] window, buttons are displayed for each layer. Explanation of each button is as in Chart 3-2-9.</p>
+<p><img alt="グラフィックス9" src="_images/10000201000001710000013A10C227A3.png" /></p>
+<p>Chart 3-2-9． Layer window</p>
+<p>When the layer area is not within the display extent, click Zoom to extent button. Also, performing the project setting enables designating the default display extent on opening the project. When doing so, referring to the layer range makes the setting easier.</p>
+<p>For the project setting, click the button at the top right as in Chart 3-2-10.</p>
+<p><img alt="グラフィックス10" src="_images/100002010000028E0000020457FDF27D.png" /></p>
+<p>Chart 3-2-10． Project setting button</p>
+<p>Click the project setting button and a screen as in Chart 3-2-11 is shown.</p>
+<p><img alt="グラフィックス11" src="_images/100002010000028E000002049FF40B9C.png" /></p>
+<p>Chart 3-2-11． Project setting screen</p>
+<p>About the details of the project setting is explained in the section 3-4. Export from TileMill and disclosure. Here, specify the zoom level and the center position at the time of initial display. Once the setting is completed, click 「Save」 at the lower right.</p>
+<p><img alt="グラフィックス12" src="_images/100002010000028E00000204F9E39058.png" /></p>
+<p>Chart 3-2-12． Saving project setting</p>
+<p>Now, set the layer order after reading all the necessary layers. The layer order is set in the layer window shown in Chart 3-2-9 above.</p>
+<p><img alt="グラフィックス13" src="_images/100002010000013E000000A7EE22669D.png" /></p>
+<p>Chart 3-2-13． Layer window</p>
+<p>Layers are rendered from the rearmost layer; the bottom layer is the rearmost and the top layer is the most front. To change the layer order, click the icon of each layer, drag and drop it at any position. To reflect the change, click 「Save」 at the top right.</p>
+<p><img alt="グラフィックス14" src="_images/100002010000028E000002040A57B81B.png" /></p>
+<p>Chart 3-2-14． Saving the setting</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="index.html"
+                        title="前の章へ">Welcome to &#8216;s documentation!</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="3-3trans.html"
+                        title="次の章へ">3-3． Editing Global Map by TileMill</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/3-2trans.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    モジュール、クラス、または関数名を入力してください
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="3-3trans.html" title="3-3． Editing Global Map by TileMill"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to ‘s documentation!"
+             >前へ</a> |</li>
+        <li><a href="index.html"> 1.0 ドキュメント</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, .
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2 で生成しました。
+    </div>
+  </body>
+</html>

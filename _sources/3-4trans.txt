@@ -1,0 +1,291 @@
+********************************************************************************
+3-4．TExport from TileMill and disclosure
+********************************************************************************
+
+Once the map data created in exported, it becomes available for the use on othersoftware. Also, the disclosure of map data is possible by using cloud service. In this chapter, the setting method of a project as a preparation for exporting is first explained, then the export method to MBTiles file and upload method to MapBox web service.
+
+・Project setting
+
+A part of the project setting method has already been explained inChapter3-2. To open the project setting screen, refer to Chart 3-2-10 above.
+
+Here is explained the project setting for export. The following setting can be performedwhenexporting with MBTiles format.
+
+On the assumption that the default zoom level and the center point of the project is already set as inChapter3-2 in the project setting screen, we now set the extent of the project and zoom level.
+
+The extent of the project is equal to that of the file to be exported. To determine the extent, drag on the mapwindowon the left with clicking a shift key.
+
+|image_esqmzarbbb|
+
+Chart3-4-1．Determination of project extent
+
+Once it is set, the project extent is displayed brightly and the rest becomes dark.
+
+Now, we set the zoom level extent from [Zoom] slider in the right pane.
+
+|image_njalpercwh|
+
+Chart3-4-2．Setting of zoom level extent
+
+Since MBTiles files retainatile image corresponding to each zoom level, the file size becomes bigger as the number of zoom levels increases and it becomes more detailed. Although all the zoom extent (1～22) is set as the default, set it to the adequateextentnot to make the file size large.
+
+|image_bticxqfwzz|
+
+Chart3-4-3．Setting of zoom extent
+
+［MetaTile size］is the number of partitions in the tile structure. It consists of tile parts displayed and buffer area of 128pixel. The number of partitions is the number of partitions of the part displayed; to set it 2 means thatthe part is divided 4 (2×2). The number of partitions of MetaTile affects performances like display speed. The default setting (2) will cause no problem.
+
+Click　「Save」after completing all the setting.
+
+・Export to MBTiles format
+
+To convert to MBTiles format, click【Export】at the upper left and select【MBTiles】from the dropdown menu.
+
+|image_vcamqonkzp|
+
+Chart3-4-4．Select export menu
+
+Now the window as Chart3-4-5 is displayed. This window is almost same as the project setting screenand the setting of the project setting is reflected. If you do not need to change, click「Export」. If you want to change the setting, for example, when you want to export only a part of the project, set adequately and click「Export」.
+
+The export processing is performed in the background. Generally, it takessometime to export. The progress of export processing is displayed as in Chart 3-4-5.
+
+|image_iyrgdvbirt|
+
+Chart3-4-5．Progress of export processing
+
+To cancel the export, click the trash box at the right of the progress bar. Export processing is continued even if you close the progress window. To check the progress again, select【Export】－【View exports】at the top right.
+
+|image_uoowjllwav|
+
+Chart3-4-6．Display of export state
+
+When the export is completed, click「Save」button that appears.
+
+|image_havevcmhzq|
+
+Chart3-4-7．After completing export
+
+Click「Save」and the screen as Chart 3-4-8 is displayed. If there is no problem, click「Save MBTiles」.
+
+|image_ddmntsjpaq|
+
+Chart3-4-8．MBTiles confirmation screen
+
+A window that asks the storage destination is displayed. Specify thedestination and click「Save」.
+
+|image_txjtnvvtik|
+
+Chart3-4-9．Specify the file storage destination
+
+・Upload to MapBox and disclosure
+
+In MapBox (http://www.mapbox.com/), map data created on the map platform on MapBox can be disclosed by uploading the map data created by TileMill. On disclosing, OpenStreetMap, topographic data and satellite data can be used as a background of the map. In case of afree account, the capacity of the data to be uploaded is 50MB. You need to select a pay plan if the bigger capacity is necessary.
+
+Here is explained the method to upload directly from TileMill.３－４－１
+
+First, create a MapBox account. Click『Sign up』at the upper rightof the top page of MapBox.
+
+|image_dxyuvbstgx|
+
+Chart3-4-10．MapBox top page
+
+The account creation screen appears. Input your e-mail address, desired user name and password, then click 「CREATE ACCOUNT」button.
+
+|image_oeuexeqllt|
+
+Chart3-4-11．Account creation screen
+
+Once the account is created, a confirmation mail is sent from MapBox to the e-mail addressentered.Click the link shown in the mail and the creation of the account is completed.
+
+Now log in to MapBox. Click『Log in』at the upper right of the top page of MapBox.
+
+|image_knnqwhgfks|
+
+Chart3-4-12．Log in from the top page of MapBox
+
+A login screen is displayed.Enterthe e-mail address and password previously set.
+
+|image_cwcsnxyhdd|
+
+Chart3-4-13．Login screen
+
+Log in and the dashboard as Chart 3-4-14 appears. There is no data yet at this stage.
+
+|image_oxoxuxeiqe|
+
+Chart3-4-14．MapBox account dashboard
+
+After finishing the account creation, go on to interlocking TileMill and the MapBox account. For this, click「Settings」at the left side of TileMill.
+
+|image_cmrpibvmhp|
+
+Chart3-4-15．TileMill setting button
+
+Various settings on TileMillcan be performed in the setting screen. Click「Authorized」located around the center of the screen for interlocking with the MapBox account.
+
+|image_ynbckntjiw|
+
+Chart3-4-16．TileMill settingscreen
+
+If the account is logged in, the screen as Chart 3-4-17 is displayed. Click「ALLOW」to authorize if there is no problem.
+
+|image_xcphfvpoji|
+
+Chart3-4-17．Loginscreen from TileMill to MapBox
+
+Once the authorization is completed, a screen like Chart 3-4-18 is displayed.
+
+|image_mutkmrwcol|
+
+Chart3-4-18．Authorization completed
+
+The interlock state with TileMill can be checked from the MapBox account as well. Click the spanner icon at the upper right of the dashboard and select【Settings】from the dropdown menu.
+
+|image_cptabdnboc|
+
+Chart3-4-19．MapBox menu
+
+Select「Applications」from the right side of the screen displayed.
+
+|image_bntywlxtlz|
+
+Chart3-4-20．MapBox setting screen
+
+Check the left side of the screen displayed to confirmthat TileMill is registered as shown in Chart 3-4-21.
+
+|image_jtbkunkfey|
+
+Chart3-4-21．Confirmation of application registration
+
+Onceinterlocking of TileMill and MapBox account is finished, map data can be uploaded from TileMill. For this, select【Export】-【Upload】from the menu at the upper right.
+
+|image_rvkdpubjzp|
+
+Chart3-4-22．Upload menu of TileMill
+
+Then the screen like Chart3-4-23 is shown. If you find no problem, click「Next」and the upload is started.
+
+|image_towfbndcmq|
+
+Chart3-4-23．Upload confirmation screen
+
+|image_ugimadcrbi|
+
+Chart3-4-24．Upload progress
+
+When the upload is completed,「View」button as in Chart 3-4-25 is displayed. Click it and you can view the map data uploaded.
+
+|image_djbricjoqh|
+
+Chart3-4-25．Upload completion screen
+
+|image_jynhrnhuec|
+
+Chart3-4-26．Map data uploaded
+
+To disclose the map data uploaded, click「Share」button at the top left and paste the HTML code on display to the disclosure page.
+
+|image_gruumghywz|
+
+Chart3-4-27．Sharing map data
+
+Apart from the disclosure method above, there is a way to refer using Mapbox.js or iOS SDK, or you can publish as static image data. In order to perform more detailed disclosure setting, click the pencil button at the top left of the page and click「PUBLISH」at the top of the left panel displayed.
+
+|image_wwgsbyibsg|
+
+Chart3-4-28．Detaileddisclosure setting
+
+Click「PUBLISH」and the screen as Chart 3-4-29 appears. The embedded code mentioned earlier is displayed by clicking［Easy Embed］. Thefollowingpicture is a disclosurescreen by Mapbox.js. About MapBox is explained in Chapter 4-2.
+
+|image_ayggoekbfe|
+
+Chart3-4-29．Disclosure detail screen
+
+
+
+.. |image_esqmzarbbb| image:: media/image1.png
+   :alt: グラフィックス1
+
+.. |image_njalpercwh| image:: media/image2.png
+   :alt: グラフィックス2
+
+.. |image_bticxqfwzz| image:: media/image3.png
+   :alt: グラフィックス3
+
+.. |image_vcamqonkzp| image:: media/image4.png
+   :alt: グラフィックス4
+
+.. |image_iyrgdvbirt| image:: media/image5.png
+   :alt: グラフィックス5
+
+.. |image_uoowjllwav| image:: media/image6.png
+   :alt: グラフィックス6
+
+.. |image_havevcmhzq| image:: media/image7.png
+   :alt: グラフィックス7
+
+.. |image_ddmntsjpaq| image:: media/image8.png
+   :alt: グラフィックス8
+
+.. |image_txjtnvvtik| image:: media/image9.png
+   :alt: グラフィックス9
+
+.. |image_dxyuvbstgx| image:: media/image10.png
+   :alt: グラフィックス10
+
+.. |image_oeuexeqllt| image:: media/image11.png
+   :alt: グラフィックス11
+
+.. |image_knnqwhgfks| image:: media/image12.png
+   :alt: グラフィックス12
+
+.. |image_cwcsnxyhdd| image:: media/image13.png
+   :alt: グラフィックス13
+
+.. |image_oxoxuxeiqe| image:: media/image14.png
+   :alt: グラフィックス14
+
+.. |image_cmrpibvmhp| image:: media/image15.png
+   :alt: グラフィックス15
+
+.. |image_ynbckntjiw| image:: media/image16.png
+   :alt: グラフィックス16
+
+.. |image_xcphfvpoji| image:: media/image17.png
+   :alt: グラフィックス17
+
+.. |image_mutkmrwcol| image:: media/image18.png
+   :alt: グラフィックス18
+
+.. |image_cptabdnboc| image:: media/image19.png
+   :alt: グラフィックス19
+
+.. |image_bntywlxtlz| image:: media/image20.png
+   :alt: グラフィックス20
+
+.. |image_jtbkunkfey| image:: media/image21.png
+   :alt: グラフィックス21
+
+.. |image_rvkdpubjzp| image:: media/image22.png
+   :alt: グラフィックス22
+
+.. |image_towfbndcmq| image:: media/image23.png
+   :alt: グラフィックス23
+
+.. |image_ugimadcrbi| image:: media/image24.png
+   :alt: グラフィックス24
+
+.. |image_djbricjoqh| image:: media/image25.png
+   :alt: グラフィックス25
+
+.. |image_jynhrnhuec| image:: media/image26.png
+   :alt: グラフィックス26
+
+.. |image_gruumghywz| image:: media/image27.png
+   :alt: グラフィックス27
+
+.. |image_wwgsbyibsg| image:: media/image28.png
+   :alt: グラフィックス28
+
+.. |image_ayggoekbfe| image:: media/image29.png
+   :alt: グラフィックス29
+
