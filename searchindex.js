@@ -1,0 +1,1 @@
+Search.setIndex({envversion:46,terms:{"\u7d22\u5f15":0,"\u691c\u7d22":0,"\u30e2\u30b8\u30e5\u30fc\u30eb":0,contents:0,"\u30da\u30fc\u30b8":0},objtypes:{},objnames:{},filenames:["index"],titles:["Welcome to &#8216;s documentation!"],objects:{},titleterms:{and:0,tables:0,welcome:0,documentation:0,to:0,indices:0}})
